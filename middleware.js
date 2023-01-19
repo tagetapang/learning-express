@@ -1,6 +1,6 @@
 const express = require("express");
 
-const middleware =(req,res,next)=>{
+const middleware = (req,res,next)=>{
     console.log(req.originalUrl);
     next()
 }
