@@ -7,17 +7,31 @@ router.get("/new",(req,res)=>{
     res.render("form")
 })
 router.post("/",(req,res)=>{
-    res.send("created a new user")
+    const valid = false;
+    if(valid){
+        users.push(req.body.name)
+        res.redirect('/user/login');
+
+
+    }
+    else{
+        console.log(Error);
+        res.render("form")
+    }
+    
+   
 })
 router.get('/login',middleware,(req,res)=>{
-    res.json({emial: "please imput email", col: "pl"});
+    res.json({users});
 })
 const users = [{name:"tage"},{name:"valentina"}]
 router.get('/:userid',(req,res)=>{
-    
- 
  
     console.log(req.user)
+})
+router.get('/',(req,res)=>{
+    console.log(req.query.namee);
+    res.send("this is the / part ")
 })
 
 router.param("userid",(req,res,next,userid)=>{
